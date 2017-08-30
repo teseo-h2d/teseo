@@ -1,0 +1,43 @@
+This is your plugin's TODO list.
+
+Thu Aug  4 17:16:58 CEST 2005
+- Improve management of the lock mechanism:
+	* when the program crash and does not remove the file lock
+	* when quit gimp and the plug-in has not been closed before
+
+Sun Aug  7 19:49:52 CEST 2005
+- Event pathname and time mark pathname in Properties-->Traces
+
+Sat Aug 13 11:27:26 CEST 2005
+- It is possibile to center image on a point? (Submit to mailinglists, forums, discussions,...)
+- gimp_path_get_points() fails when path contains more piecewise...
+    Gimp-Vectors-WARNING **: gimp_vectors_compat_get_points(): convert failed
+        until gimp-2.3.3,  function is the same...
+- gimp_path_get_points use g_new, check if g_free() is needed!!! We never used it... Now I add it!
+- check where g_free is needed !!!
+- Write a function to "open" a closed path
+
+Sun Aug 21 10:46:44 CEST 2005
+- Omologate output message
+        see developer.gimp.org/api/2.0/glib/glib-Message-Logging.html#g-warning
+    * (i.e.  "Teseo2-Warning: function_name(): messsage")
+    * Use english language
+    * use g_message for official errors and warnings
+    * use g_printf for essential debug messages
+    * g_print() should not be used from within libraries for debugging messages,
+        since it may be redirected by applications to special purpose message windows or even files.
+        Instead, libraries should use g_log(), or the convenience functions g_message(), g_warning() and g_error().
+
+Fri Sep  2 08:30:36 CEST 2005
+- logo Wilber Seismologists: mtheo
+- Improve SAC export
+
+
+Mon Sep 12 10:53:44 CEST 2005
+- TODO and ChangeLog in distribution
+
+
+Fri Oct 21 11:32:08 CEST 2005
+- Tutorial and movie
+- Update Web pages: mtheo
+

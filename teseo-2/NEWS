@@ -1,0 +1,12 @@
+GIMP Plug-In Teseo-2
+=====================
+
+Copyright (C) 2000-2005
+Stefano Pintore & Matteo Quintiliani
+Istituto Nazionale di Geofisica e Vulcanologia
+
+Web page: http://teseo.rm.ingv.it/
+e-mail:   teseo@ingv.it
+
+This package is a plug-in for GIMP 2.2 or later, capable of vectorize seismic
+traces from historical seismograms acquired in raster format.
