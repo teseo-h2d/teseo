@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.54)
+AC_PREREQ(2.69)
 
 dnl Name your plug-in here
 m4_define([plugin_name], [teseo-2])
@@ -21,6 +21,8 @@ AC_DEFINE(PLUGIN_VERSION, PACKAGE_VERSION, [Plug-In version])
 AC_DEFINE(PLUGIN_MAJOR_VERSION, plugin_major_version, [Plug-In major version])
 AC_DEFINE(PLUGIN_MINOR_VERSION, plugin_minor_version, [Plug-In minor version])
 AC_DEFINE(PLUGIN_MICRO_VERSION, plugin_micro_version, [Plug-In micro version])
+
+AC_DEFINE(PACKAGE,["plugin_name"],[extra symbol used in teseo source code])
 
 AC_CONFIG_SRCDIR([src/main.c])
 AM_CONFIG_HEADER(config.h)
@@ -49,7 +51,7 @@ fi
 changequote([,])dnl
 
 
-GIMP_REQUIRED_VERSION=2.1.0
+GIMP_REQUIRED_VERSION=2.8.0
 
 PKG_CHECK_MODULES(GIMP,
   gimp-2.0 >= $GIMP_REQUIRED_VERSION gimpui-2.0 >= $GIMP_REQUIRED_VERSION)
@@ -82,32 +84,19 @@ DATADIR='${datadir}/plugin_name'
 AC_SUBST(LOCALEDIR)
 AC_SUBST(DATADIR)
 
+dnl Forbids deprecated from glib, libgimp and libgtk+-2.0
+CPPFLAGS="$CPPFLAGS -DGDK_DISABLE_DEPRECATED -DGIMP_DISABLE_DEPRECATED"
+dnl -DGTK_DISABLE_DEPRECATED removed, was failing teseocallbacks.c compilation
+dnl -DG_DISABLE_DEPRECATED removed, was failing linking because of teseo_sac.c using deprecated g_memmove()
 
-AC_MSG_CHECKING([if GTK+ is version 2.7.0 or newer])
-if $PKG_CONFIG --atleast-version=2.7.0 gtk+-2.0; then
-  have_gtk_2_7=yes
-else
-  have_gtk_2_7=no
-fi
-AC_MSG_RESULT($have_gtk_2_7)
-
-if test "x$have_gtk_2_7" != "xyes"; then
-  CPPFLAGS="$CPPFLAGS -DG_DISABLE_DEPRECATED -DGDK_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED"
-fi
-
-
-AC_MSG_CHECKING([if GIMP is version 2.3.0 or newer])
-if $PKG_CONFIG --atleast-version=2.3.0 gimp-2.0; then
-  have_gimp_2_3=yes
-else
-  have_gimp_2_3=no
-fi
-AC_MSG_RESULT($have_gimp_2_3)
-
-if test "x$have_gimp_2_3" != "xyes"; then
-  CPPFLAGS="$CPPFLAGS -DGIMP_DISABLE_DEPRECATED"
-fi
-
+PKG_CHECK_MODULES([GTK2], [gtk+-2.0 >= 2.24.10 ]) # gtkdatabox 0.9.2 requires at least version 2.8
+						  # and gimp 2.8.x requires 2.24.10 or newer version
+PKG_CHECK_MODULES([GLIB2], [glib-2.0 >= 2.30.2]) # gimp 2.8 glib minimal version requirement
+PKG_CHECK_MODULES([GTKADDONS], [gtk-addons >= 0.1])
+PKG_CHECK_MODULES([NEWUOA], [newuoa >= 0.1])
+PKG_CHECK_MODULES([GTKDATABOX], [gtkdatabox >= 0.9.1.1])
+AC_SEARCH_LIBS([cos], [m], [], [AC_MSG_ERROR([unable to find the cos() function])])
+AC_SEARCH_LIBS([_gfortran_size0], [gfortran], [], [AC_MSG_ERROR([unable to find libgfortran])])
 
 
 AC_CONFIG_FILES([
