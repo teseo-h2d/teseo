@@ -2,6 +2,8 @@
  * Copyright (C) 2005  Stefano Pintore, Matteo Quintiliani (the "Authors").
  * All Rights Reserved.
  *
+ * 2017 - h2d -- h2d-teseo at programmer dot net (ported the plugin from gtkdatabox 0.4.0.1 to version >= 0.9.1.1).
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation
@@ -36,6 +38,7 @@
 #include <libgimp/gimpui.h>
 
 //#include <gtkextra/gtkplot.h>
+#include <gtkdatabox_bars.h>
 
 #include "teseocallbacks.h"
 #include "teseointerface.h"
@@ -56,13 +59,9 @@
 #include "teseo_filters.h"
 #include "teseo_wiechert.h"
 
-#ifdef GTKDATABOX_OLD0401
 #include <gtkdatabox.h>
 #include <gtkdatabox_lines.h>
 #include "teseo_databox.h"
-#else
-const char gtkdatabox_message[] = "Graphical display has been removed since gtkdatabox-0.4.0.1 is no longer compatible with the current version of GTK.";
-#endif
 
 GtkWidget * win_teseo;
 GtkWidget * dlg_preferences;
@@ -1875,7 +1874,7 @@ on_teseo_calc_arm_shift_clicked        (GtkButton       *button,
                                         gpointer         user_data)
 {
 
-#ifdef GTKDATABOX_OLD0401
+
 	gboolean use_span=TRUE;
 	gboolean use_coord=FALSE;
 	gboolean rotate=TRUE;
@@ -2026,7 +2025,7 @@ on_teseo_calc_arm_shift_clicked        (GtkButton       *button,
                 color.blue = 1050;
 		GtkWidget * databox_plot=
 			teseo_create_databox (
-			N_TRIES, X, Y, color, GTK_DATABOX_LINES, 1,
+			N_TRIES, X, Y, color, GTK_DATABOX_TYPE_LINES, 1,
 			"Teseo: arm shift", "Errors versus arm shift", "Arm shift [mm]", "Errors [counts]",
 			TRUE );
 		gtk_widget_show_all(databox_plot);
@@ -2041,9 +2040,8 @@ on_teseo_calc_arm_shift_clicked        (GtkButton       *button,
 		g_message("Current path is not a polyline, nothing to do");
 	}
 
-#else
-    g_message(gtkdatabox_message);
-#endif
+
+
 
 }
 
@@ -2054,7 +2052,6 @@ on_teseo_calc_arm_slope_clicked        (GtkButton       *button,
                                         gpointer         user_data)
 {
 
-#ifdef GTKDATABOX_OLD0401
 	gboolean use_span=TRUE;
 	gboolean use_coord=FALSE;
 	gboolean rotate=TRUE;
@@ -2174,7 +2171,7 @@ on_teseo_calc_arm_slope_clicked        (GtkButton       *button,
                 color.green = 1035;
                 color.blue = 1050;
 
-		GtkWidget * databox_plot=teseo_create_databox (180, X, Y, color, GTK_DATABOX_BARS, 1, "Teseo: histogram", msg, "Slope [deg]", "Counts",FALSE);
+		GtkWidget * databox_plot=teseo_create_databox (180, X, Y, color, GTK_DATABOX_TYPE_BARS, 1, "Teseo: histogram", msg, "Slope [deg]", "Counts",FALSE);
 		gtk_widget_show_all(databox_plot);
 		gtk_main();
 		//waiting events
@@ -2188,9 +2185,9 @@ on_teseo_calc_arm_slope_clicked        (GtkButton       *button,
 		g_message("Current path is not a polyline, nothing to do");
 	}
 
-#else
-    g_message(gtkdatabox_message);
-#endif
+
+
+
 
 }
 
