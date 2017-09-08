@@ -2124,6 +2124,7 @@ create_dlg_about (void)
   GtkWidget *label216;
   GtkWidget *label_authors;
   GtkWidget *label_institution;
+  GtkWidget *label_h2d;
   GtkWidget *dialog_action_area7;
   GtkWidget *okbutton4;
 
@@ -2194,6 +2195,12 @@ create_dlg_about (void)
   gtk_box_pack_start (GTK_BOX (vbox63), label_institution, FALSE, FALSE, 0);
   gtk_label_set_use_markup (GTK_LABEL (label_institution), TRUE);
   gtk_label_set_justify (GTK_LABEL (label_institution), GTK_JUSTIFY_CENTER);
+
+  label_h2d = gtk_label_new("<small>Teseo 2.2.0 (2017) based on Teseo 2.1.0 and\nreleased by h2d at https://github.com/teseo-h2d/teseo.</small>");
+  gtk_widget_show(label_h2d);
+  gtk_box_pack_start (GTK_BOX (vbox63), label_h2d, FALSE, FALSE, 0);
+  gtk_label_set_use_markup (GTK_LABEL (label_h2d), TRUE);
+  gtk_label_set_justify (GTK_LABEL (label_h2d), GTK_JUSTIFY_CENTER);
 
   dialog_action_area7 = GTK_DIALOG (dlg_about)->action_area;
   gtk_widget_set_name (dialog_action_area7, "dialog_action_area7");

@@ -22,14 +22,13 @@ Basic Installation
 ==================
 
 These are basic installation instructions for Teseo-2 on WIN32 platforms.
-Teseo-2 is a gimp-2.2 plugin so you need gimp-2.2 to use it.
-To compile and link with gtkdatabox-0.4.0.1 declare -DGTKDATABOX_OLD0401 within CFLAGS
+Teseo-2 is a gimp-2.8 plugin so you need gimp-2.8.x to use it.
 
 
 Pre-requisite
 =============
 
-1 - Install gimp-2.2.9 or newer : files and instructions at http://gimp-win.sourceforge.net
+1 - Install gimp-2.8.x or maybe newer : files and instructions at https://www.gimp.org/downloads/
 
 2 - (Optional) Install gimp-help.
 
@@ -83,6 +82,8 @@ You have 2 possibilities to install teseo-2 on Mac Os X.
 ***************************************************
 *** SOURCE INSTALLATION
 ***************************************************
+
+NOTE: The configure script will fail asking you the dependency libraries you have to install or to specify into PKG_CONFIG_PATH.
 
 Basic Installation
 ==================
