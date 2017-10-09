@@ -3,7 +3,7 @@
 Teseo is a GIMP plug-in, developed using gtkdatabox for graph display.
 The distributed version of Teseo (2.1.0) was based on outdated gtkdatabox 0.4.1.0.
 This fork is an update attempt of the related code part to be compliant with gtkdatabox 0.9.1.1 and further versions.
-Some other changes have been made to fix compilation issues and renew dependency requirements according GIMP 2.8 version. 
+Some other changes have been made to fix compilation issues and renew dependency requirements according to GIMP 2.8 version. 
 For more details, take a look to git logs.
 
 ## What is Teseo ?
