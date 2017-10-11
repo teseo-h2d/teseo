@@ -34,6 +34,8 @@ AC_PROG_CC
 AM_PROG_CC_STDC
 AC_HEADER_STDC
 
+AC_F77_LIBRARY_LDFLAGS 
+LIBS="${LIBS} ${FLIBS}"
 
 ACLOCAL="$ACLOCAL $ACLOCAL_FLAGS"
 
@@ -96,7 +98,6 @@ PKG_CHECK_MODULES([GTKADDONS], [gtk-addons >= 0.1])
 PKG_CHECK_MODULES([NEWUOA], [newuoa >= 0.1])
 PKG_CHECK_MODULES([GTKDATABOX], [gtkdatabox >= 0.9.1.1])
 AC_SEARCH_LIBS([cos], [m], [], [AC_MSG_ERROR([unable to find the cos() function])])
-AC_SEARCH_LIBS([_gfortran_size0], [gfortran], [], [AC_MSG_ERROR([unable to find libgfortran])])
 
 
 AC_CONFIG_FILES([
