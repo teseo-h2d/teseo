@@ -1,4 +1,4 @@
-## Why this Teseo Fork ?
+## Why this Teseo Fork 
 
 Teseo is a GIMP plug-in, developed using gtkdatabox for graph display.
 The distributed version of Teseo (2.1.0) was based on outdated gtkdatabox 0.4.1.0.
@@ -18,7 +18,7 @@ The response from the authors themselves (quoting the Teseo user manual):
 >	Teseo 2 is a plug–in for GIMP – GNU Image Manipulation Program –
 >	that extends its functionalities for seismological studies.
 
-The original project web site is here: [Teseo website](http://sismos.ingv.it/teseo/)
+The original project web site is here: [Teseo website](http://teseo.rm.ingv.it)
 
 ## How to Build ?
 
