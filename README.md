@@ -36,10 +36,15 @@ If you're interested to get this DMG, you can send me an email (see contact sect
 ## Contact
 
 For any question about this fork project you can send an email to h2d-teseo at programmer dot net.
-You can also post an issue on github interface.
+You can also post an issue on the github interface.
 However, please note that I'm not in charge of the original project, I just release an update to help.
 
+## Credits
+
 H2D
+
+This work has been initiated during an engineer contract in the Laboratoire de Planétologie et Géodynamique (LPG, UMR-CNRS 6112) of Nantes University, France.
+
 
 
 
